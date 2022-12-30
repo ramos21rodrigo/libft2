@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roramos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: roramos <roramos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 20:27:18 by roramos           #+#    #+#             */
-/*   Updated: 2022/10/19 17:29:23 by roramos          ###   ########.fr       */
+/*   Updated: 2022/11/25 17:19:58 by roramos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define  BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -23,6 +29,24 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+//ft_printf
+int		ft_printf(const char *format, ...);
+int		ft_print_str(char *s);
+int		ft_print_chr(char c);
+int		ft_print_ptr(unsigned long ptr);
+int		ft_print_num(int num);
+int		ft_print_unum(int unsigned num);
+int		ft_print_lower_hex(int num);
+int		ft_print_upper_hex(int num);
+int		ft_print_percent(void);
+
+//get_next_line
+char	*get_next_line(int fd);
+char	*read_first_line(int fd, char *text);
+char	*get_line(char *text);
+char	*clean_first_line(char *text);
+
+//libft
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
